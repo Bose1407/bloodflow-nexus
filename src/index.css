@@ -2,13 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Blood Bank Management System Design System
+Medical-themed colors and design tokens for professional healthcare UI
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    /* Core Medical Theme Colors */
+    --background: 210 20% 98%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -17,10 +19,13 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Medical Red Primary */
+    --primary: 0 84% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 0 84% 65%;
 
-    --secondary: 210 40% 96.1%;
+    /* Medical Gray Secondary */
+    --secondary: 210 16% 93%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
@@ -29,12 +34,41 @@ All colors MUST be HSL.
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Medical Status Colors */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
+    /* Blood Type Colors */
+    --blood-o-positive: 0 84% 55%;
+    --blood-o-negative: 0 84% 45%;
+    --blood-a-positive: 142 76% 36%;
+    --blood-a-negative: 142 76% 30%;
+    --blood-b-positive: 217 91% 60%;
+    --blood-b-negative: 217 91% 50%;
+    --blood-ab-positive: 271 81% 56%;
+    --blood-ab-negative: 271 81% 46%;
+
+    /* Medical Gradients */
+    --gradient-medical: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(142 76% 46%));
+    --gradient-warning: linear-gradient(135deg, hsl(var(--warning)), hsl(38 92% 60%));
+    --gradient-info: linear-gradient(135deg, hsl(var(--info)), hsl(217 91% 70%));
+
+    /* Medical Shadows */
+    --shadow-medical: 0 4px 20px -2px hsl(var(--primary) / 0.15);
+    --shadow-card: 0 2px 10px -2px hsl(222.2 84% 4.9% / 0.08);
+    --shadow-glow: 0 0 30px hsl(var(--primary-glow) / 0.3);
+
+    /* Layout & Borders */
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 0 84% 55%;
 
     --radius: 0.5rem;
 
@@ -101,5 +135,40 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* Medical-specific animations */
+  @keyframes blood-flow {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes fade-in {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Smooth focus transitions */
+  input:focus, select:focus, textarea:focus {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Custom scrollbar for medical theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.3);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
   }
 }
