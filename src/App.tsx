@@ -8,6 +8,12 @@ import Index from "./pages/Index";
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import DashboardPage from "./pages/dashboard/DashboardPage";
+import DonorListPage from "./pages/donors/DonorListPage";
+import InventoryPage from "./pages/inventory/InventoryPage";
+import RequestsPage from "./pages/requests/RequestsPage";
+import DrivesPage from "./pages/drives/DrivesPage";
+import NotificationsPage from "./pages/notifications/NotificationsPage";
+import ProfilePage from "./pages/profile/ProfilePage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -66,6 +72,54 @@ const AppRoutes = () => (
       element={
         <ProtectedRoute>
           <DashboardPage />
+        </ProtectedRoute>
+      } 
+    />
+    <Route 
+      path="/donors" 
+      element={
+        <ProtectedRoute>
+          <DonorListPage />
+        </ProtectedRoute>
+      } 
+    />
+    <Route 
+      path="/inventory" 
+      element={
+        <ProtectedRoute>
+          <InventoryPage />
+        </ProtectedRoute>
+      } 
+    />
+    <Route 
+      path="/requests" 
+      element={
+        <ProtectedRoute>
+          <RequestsPage />
+        </ProtectedRoute>
+      } 
+    />
+    <Route 
+      path="/drives" 
+      element={
+        <ProtectedRoute>
+          <DrivesPage />
+        </ProtectedRoute>
+      } 
+    />
+    <Route 
+      path="/notifications" 
+      element={
+        <ProtectedRoute>
+          <NotificationsPage />
+        </ProtectedRoute>
+      } 
+    />
+    <Route 
+      path="/profile" 
+      element={
+        <ProtectedRoute>
+          <ProfilePage />
         </ProtectedRoute>
       } 
     />
